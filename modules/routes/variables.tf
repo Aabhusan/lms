@@ -1,5 +1,5 @@
 variable "availability_zones" {
-  default=["ap-southeast-2a","ap-southeast-2b","ap-southeast-2c"]
+  default=["ap-south-1a"]
 }
 
 variable "gateway_id"   {
