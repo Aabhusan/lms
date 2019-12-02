@@ -9,7 +9,7 @@ terraform {
   backend "remote" {
     organization  = "AabhusanInc"
     workspaces {
-      name        = "lms-infrastructure-terraform"
+      name        = "lms"
     }
   }
 } 
