@@ -3,23 +3,27 @@ variable "lms_apache_key_name" {
 }
 
 variable "aws_ami" {  
-  default= "ami-54d2a63b"
+  default= "ami-0eacc5b7915ba9921"
 }
 
 variable "instance_type" {
+    type= "string"
     default="t2.micro"
 }
 
 variable "subnet_id" {
-  
+  type = "string"
 }
 
 variable "vpc_id" {
+  type = "string"
   
 }
 
 variable "availability_zones" {
-    default = ["ap-south-1a"]
+  type  ="list"
+  default = ["ap-south-1a"]
+
 }
 
 

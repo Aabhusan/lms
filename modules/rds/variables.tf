@@ -3,15 +3,22 @@ variable "db_instance_type" {
   
 }
 
-variable "vpc_id" {
-  
+variable "vpc_id" { 
+
 }
 
-variable "subnet_id" {
-  
+variable "subnet_id"{
+    type = list(string)
+
 }
+
 
 variable "main_security_group" {
-  
+    
+    type = "string"
 }
+
+
+
+
 

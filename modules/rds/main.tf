@@ -6,21 +6,22 @@ resource "aws_db_instance" "lms" {
   instance_class       = "${var.db_instance_type}"
   name                 = "lmsDB"
   username             = "lms"
-  password             = "lms@123"
+  password             = "leapfroglms123"
   parameter_group_name = "${aws_db_parameter_group.default.id}"
-  db_subnet_group_name = "${aws_db_subnet_group.default.id}"
+  db_subnet_group_name = "${aws_db_subnet_group.default.name}"
   max_allocated_storage = 100
   deletion_protection   = true
-  #vpc_security_group_ids=["${var.main_security_group}"]
-  security_group_names  = ["${aws_security_group.rds.name}"]
+  vpc_security_group_ids=["${aws_security_group.rds.id}"]
+  #security_group_names  = ["${aws_security_group.rds.id}"]
   
 }
 
 
 
+
 resource "aws_db_parameter_group" "default" {
   name   = "lms-rds-pg"
-  family = "mysql5.6"
+  family = "mysql5.7"
 
   parameter {
     name  = "character_set_server"
@@ -30,14 +31,13 @@ resource "aws_db_parameter_group" "default" {
 
 resource "aws_db_subnet_group" "default" {
   name       = "lms_subnet_group"
-  subnet_ids = ["var.subnet_id"]
-
+  subnet_ids = var.subnet_id
   tags = {
     Name = "My DB subnet group"
   }
 }
 
-
+ 
 
 resource "aws_security_group" "rds" {
     name= "lms_rds_sg"

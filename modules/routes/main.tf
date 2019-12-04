@@ -18,7 +18,8 @@ resource "aws_route" "public_internet_gateway" {
 resource "aws_route_table_association" "public" {
     count   ="${length(var.availability_zones)}"
 
-    subnet_id           ="${element(var.subnet_id, count.index)}"
+    #subnet_id           ="${element(var.subnet_id, count.index)}"
+    subnet_id           ="${var.subnet_id}"
     #subnet_id           ="${element(var.public_subnet_id, count.index)}"
 
     
@@ -40,7 +41,8 @@ resource "aws_route" "nat_gateway" {
     route_table_id              ="${element(aws_route_table.private.*.id,count.index)}"
 
     destination_cidr_block      ="0.0.0.0/0"
-    nat_gateway_id              ="${element(var.nat_gateway_id, count.index)}"
+    nat_gateway_id              ="${var.nat_gateway_id}"
+    #nat_gateway_id              ="${element(var.nat_gateway_id, count.index)}"
 
 
   
@@ -48,7 +50,8 @@ resource "aws_route" "nat_gateway" {
 
 resource "aws_route_table_association" "private" {
     count               ="${length(var.availability_zones)}"
-    subnet_id           ="${element(var.subnet_id, count.index)}"
+    #subnet_id           ="${element(var.subnet_id, count.index)}"
+    subnet_id           ="${var.subnet_id}"
     
 
     route_table_id      ="${element(aws_route_table.public.*.id, count.index)}"

@@ -1,5 +1,5 @@
-variable "availabilty_zones" {
-  default = ["ap-south-1a"]
+variable "availability_zones" {
+  default = ["ap-south-1a","ap-south-1b"]
 }
 
 variable "cidr_block" {

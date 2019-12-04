@@ -16,7 +16,8 @@ resource "aws_instance" "lms-ec2-apache" {
     ami                             ="${var.aws_ami}"
     instance_type                   ="${var.instance_type}"
     key_name                        ="${aws_key_pair.lms-ec2-apache.id}"
-    subnet_id                       ="${element(var.subnet_id,count.index)}"
+    subnet_id                       ="${var.subnet_id}"
+    #subnet_id                       ="${element(var.subnet_id,count.index)}"
     security_groups                 =["${aws_security_group.lms-ec2-apache.id}"]
 
 

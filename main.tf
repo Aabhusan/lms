@@ -27,6 +27,7 @@ module "ec2-apache" {
 module "rds" {
   source = "./modules/rds"
   vpc_id = "${module.vpc.vpc_id}"
-  subnet_id= "${module.subnets.private_subnet_id}"
+  subnet_id= module.subnets.private_subnet_id
   main_security_group = "${module.ec2-apache.main_security_group}"
+  
 }
