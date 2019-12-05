@@ -1,5 +1,5 @@
 variable "vpc_region" {
-  default="ap-south-1"
+  default="us-west-2"
 }
 
 

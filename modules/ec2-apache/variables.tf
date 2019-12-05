@@ -3,7 +3,9 @@ variable "lms_apache_key_name" {
 }
 
 variable "aws_ami" {  
-  default= "ami-0eacc5b7915ba9921"
+  default= "ami-0c5204531f799e0c6"
+
+  
 }
 
 variable "instance_type" {
@@ -22,7 +24,7 @@ variable "vpc_id" {
 
 variable "availability_zones" {
   type  ="list"
-  default = ["ap-south-1a"]
+  default = ["us-west-2a","us-west-2b"]
 
 }
 

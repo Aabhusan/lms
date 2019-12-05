@@ -1,5 +1,5 @@
 variable "availability_zones" {
-  default = ["ap-south-1a","ap-south-1b"]
+  default = ["us-west-2a","us-west-2b"]
 }
 
 variable "cidr_block" {

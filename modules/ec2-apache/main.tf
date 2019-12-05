@@ -12,7 +12,8 @@ resource "aws_key_pair" "lms-ec2-apache" {
 
 resource "aws_instance" "lms-ec2-apache" {
 
-    count                           ="${length(var.availability_zones)}"
+    #count                           ="${length(var.availability_zones)}"
+    #name                            = "lms-apache-superset"
     ami                             ="${var.aws_ami}"
     instance_type                   ="${var.instance_type}"
     key_name                        ="${aws_key_pair.lms-ec2-apache.id}"
@@ -22,7 +23,7 @@ resource "aws_instance" "lms-ec2-apache" {
 
 
     tags = {
-    Name  = "lms-ec2-apache-${count.index + 1}"
+    Name  = "lms-ec2-apache"
     key_name      ="${aws_key_pair.lms-ec2-apache.id}"
 
     }
