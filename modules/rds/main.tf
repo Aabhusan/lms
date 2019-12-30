@@ -6,7 +6,7 @@ resource "aws_db_instance" "lms" {
   instance_class       = "${var.db_instance_type}"
   name                 = "lmsDB"
   username             = "lms"
-  password             = "leapfroglms123"
+  password             = ""
   parameter_group_name = "default.postgres11"
   #parameter_group_name = "${aws_db_parameter_group.default.id}"
   db_subnet_group_name = "${aws_db_subnet_group.default.name}"
